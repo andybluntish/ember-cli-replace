@@ -1,0 +1,38 @@
+{
+  "name": "ember-cli-replace",
+  "version": "0.1.0",
+  "description": "Replace text patterns with applause.",
+  "author": "Andy Stanford-Bluntish <andy@bluntish.net>",
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andybluntish/ember-cli-replace.git"
+  },
+  "bugs": {
+    "url": "https://github.com/andybluntish/ember-cli-replace/issues"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "dependencies": {
+    "broccoli-replace": "^0.2.0"
+  },
+  "keywords": [
+    "ember-addon",
+    "replace",
+    "replacement",
+    "pattern",
+    "patterns",
+    "match",
+    "text",
+    "string",
+    "regex",
+    "regexp",
+    "json",
+    "yaml",
+    "cson",
+    "flatten"
+  ],
+  "ember-addon": {}
+}

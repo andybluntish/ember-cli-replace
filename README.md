@@ -1,4 +1,4 @@
-# Ember CLI Replace
+# Ember CLI Replace [![Build Status](https://travis-ci.org/andybluntish/ember-cli-replace.svg)](https://travis-ci.org/andybluntish/ember-cli-replace)
 
 [Ember CLI](http://www.ember-cli.com/) addon to replace text patterns in files. This is just a thin wrapper around [broccoli-replace](https://github.com/outaTiME/broccoli-replace).
 

@@ -1,12 +1,10 @@
-# Ember-cli-replace
+# Ember CLI Replace [![Build Status](https://travis-ci.org/andybluntish/ember-cli-replace.svg)](https://travis-ci.org/andybluntish/ember-cli-replace)
 
-Replace text patterns in files. This addon is a thin wrapper around [broccoli-replace](https://github.com/outaTiME/broccoli-replace).
-
+[Ember CLI](http://www.ember-cli.com/) addon to replace text patterns in files. This is just a thin wrapper around [broccoli-replace](https://github.com/outaTiME/broccoli-replace).
 
 ## Installation
 
-    npm install ember-cli-replace --save-dev
-
+    ember install:addon ember-cli-replace
 
 ## Options
 
@@ -24,4 +22,4 @@ Define the source files that will be used for replacements, and patterns that wi
       }
     });
 
-Read more about the options you may pass in on the [broccoli-replace](https://github.com/outaTiME/broccoli-replace) page.
+Read more about the options you may pass in on the [broccoli-replace](https://github.com/outaTiME/broccoli-replace) page. For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).

@@ -1,26 +1,22 @@
+/* jshint node: true */
 'use strict';
 
 var replace = require('broccoli-replace');
 
-function EmberCLIReplace(project) {
-  this.project = project;
-  this.name = 'Ember CLI Replace';
-}
+module.exports = {
+  name: 'ember-cli-replace',
+  included: function(app) {
+    this.app = app;
+    this.options = this.app.options.replace;
+  },
+  postprocessTree: function (type, tree) {
+    var defaults = {
+      files: [],
+      patterns: []
+    };
 
-EmberCLIReplace.prototype.included = function included(app) {
-  this.app = app;
-  this.options = this.app.options.replace;
+    tree = replace(tree, this.options || defaults);
+
+    return tree;
+  }
 };
-
-EmberCLIReplace.prototype.postprocessTree = function postprocessTree(type, tree) {
-  var defaults = {
-    files: [],
-    patterns: []
-  };
-
-  tree = replace(tree, this.options || defaults);
-
-  return tree;
-};
-
-module.exports = EmberCLIReplace;

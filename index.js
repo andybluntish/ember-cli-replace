@@ -9,7 +9,7 @@ module.exports = {
     this.app = app;
     this.options = this.app.options.replace;
   },
-  postprocessTree: function(type, tree) {
+  postprocessTree: function (type, tree) {
     var defaults = {
       files: [],
       patterns: []

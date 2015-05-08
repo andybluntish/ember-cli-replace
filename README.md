@@ -4,7 +4,7 @@
 
 ## Installation
 
-    ember install:addon ember-cli-replace
+    ember install ember-cli-replace
 
 ## Options
 
@@ -18,7 +18,8 @@ Define the source files that will be used for replacements, and patterns that wi
         patterns: [{
           match: 'foo',
           replacement: 'bar' // replaces "@@foo" to "bar"
-        }]
+        }],
+        enabled: true // can be set to false to disable
       }
     });
 

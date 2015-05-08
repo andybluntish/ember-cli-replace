@@ -5,17 +5,28 @@ var replace = require('broccoli-replace');
 
 module.exports = {
   name: 'ember-cli-replace',
+
   included: function(app) {
-    this.app = app;
-    this.options = this.app.options.replace;
-  },
-  postprocessTree: function (type, tree) {
-    var defaults = {
+    this._super.included.apply(this, arguments);
+    this.options = app.options.replace || {};
+
+    var defaultOptions = {
       files: [],
-      patterns: []
+      patterns: [],
+      enabled: true
     };
 
-    tree = replace(tree, this.options || defaults);
+    for (var option in defaultOptions) {
+      if (!this.options.hasOwnProperty(option)) {
+        this.options[option] = defaultOptions[option];
+      }
+    }
+  },
+
+  postprocessTree: function(type, tree) {
+    if (type === 'all' && this.options && this.options.enabled) {
+      tree = replace(tree, this.options);
+    }
 
     return tree;
   }

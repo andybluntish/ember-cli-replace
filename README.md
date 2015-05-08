@@ -4,7 +4,7 @@
 
 ## Installation
 
-    ember install:addon ember-cli-replace
+    ember install ember-cli-replace
 
 ## Options
 

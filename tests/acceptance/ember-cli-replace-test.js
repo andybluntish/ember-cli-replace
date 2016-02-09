@@ -1,21 +1,7 @@
-import Ember from 'ember';
-import {
-  module,
-  test
-} from 'qunit';
-import startApp from '../helpers/start-app';
+import { test } from 'qunit';
+import moduleForAcceptance from '../../tests/helpers/module-for-acceptance';
 
-var application;
-
-module('Acceptance: EmberCliReplace', {
-  beforeEach: function() {
-    application = startApp();
-  },
-
-  afterEach: function() {
-    Ember.run(application, 'destroy');
-  }
-});
+moduleForAcceptance('Acceptance | ember cli replace');
 
 test('it replaces token in files', function(assert) {
   assert.expect(1);

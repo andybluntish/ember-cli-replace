@@ -62,7 +62,7 @@
     "flatten"
   ],
   "dependencies": {
-    "broccoli-replace": "^0.11.0",
+    "broccoli-replace": "0.12.0",
     "ember-cli-babel": "^5.1.5"
   },
   "ember-addon": {

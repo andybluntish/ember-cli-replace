@@ -1,12 +1,10 @@
-/* eslint-env node */
 'use strict';
 
 var replace = require('broccoli-replace');
 
 module.exports = {
-  name: 'ember-cli-replace',
-
-  included: function() {
+  name: require('./package').name,
+  included: function () {
     this._super.included.apply(this, arguments);
     this.app.options.replace = this.app.options.replace || {};
 
@@ -23,7 +21,7 @@ module.exports = {
     }
   },
 
-  postprocessTree: function(type, tree) {
+  postprocessTree: function (type, tree) {
     if (type === 'all' && this.app.options.replace && this.app.options.replace.enabled) {
       tree = replace(tree, this.app.options.replace);
     }

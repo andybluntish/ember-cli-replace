@@ -1,5 +1,5 @@
 import { test, module } from 'qunit';
-import { visit, find } from '@ember/test-helpers';
+import { visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 
 module('Acceptance | ember cli replace', function (hooks) {
@@ -8,6 +8,6 @@ module('Acceptance | ember cli replace', function (hooks) {
   test('can visit /', async function (assert) {
     assert.expect(1);
     await visit('/');
-    assert.equal(find('.replaced').innerText, 'Foo is bar');
+    assert.dom('.replaced').hasText('Foo is bar')
   });
 });

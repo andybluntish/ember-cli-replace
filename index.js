@@ -4,6 +4,7 @@ var replace = require('broccoli-replace');
 
 module.exports = {
   name: require('./package').name,
+
   included: function () {
     this._super.included.apply(this, arguments);
     this.app.options.replace = this.app.options.replace || {};

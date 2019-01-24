@@ -1,13 +1,13 @@
-import { test } from 'qunit';
-import moduleForAcceptance from '../../tests/helpers/module-for-acceptance';
+import { test, module } from 'qunit';
+import { visit, find } from '@ember/test-helpers';
+import { setupApplicationTest } from 'ember-qunit';
 
-moduleForAcceptance('Acceptance | ember cli replace');
+module('Acceptance | ember cli replace', function (hooks) {
+  setupApplicationTest(hooks);
 
-test('it replaces token in files', function(assert) {
-  assert.expect(1);
-  visit('/');
-
-  andThen(function() {
-    assert.equal(find('.replaced').text(), 'Foo is bar');
+  test('can visit /', async function (assert) {
+    assert.expect(1);
+    await visit('/');
+    assert.equal(find('.replaced').innerText, 'Foo is bar');
   });
 });

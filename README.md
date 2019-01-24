@@ -32,4 +32,10 @@ var app = new EmberApp({
 });
 ```
 
+## Troubleshooting
+
+You must have phantomjs installed in your system for the tests to run.
+
+    npm install -g phantomjs
+
 Read more about the options you may pass in on the [broccoli-replace](https://github.com/outaTiME/broccoli-replace) page. For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).

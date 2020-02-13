@@ -75,6 +75,9 @@
     "ember-cli-babel": "^7.1.2"
   },
   "ember-addon": {
-    "configPath": "tests/dummy/config"
+    "configPath": "tests/dummy/config",
+    "before": [
+      "broccoli-asset-rev"
+    ]
   }
 }

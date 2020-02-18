@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-replace",
-  "version": "0.7.0",
+  "version": "1.0.0",
   "description": "Replace text patterns with applause.",
   "scripts": {
     "build": "ember build --environment=production",

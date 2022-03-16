@@ -1,21 +1,21 @@
 'use strict'
 
-var replace = require('broccoli-replace')
+const replace = require('broccoli-replace')
 
 module.exports = {
   name: require('./package').name,
 
-  included: function() {
+  included() {
     this._super.included.apply(this, arguments)
     this.app.options.replace = this.app.options.replace || {}
 
-    var defaultOptions = {
+    const defaultOptions = {
       files: [],
       patterns: [],
       enabled: true,
     }
 
-    for (var option in defaultOptions) {
+    for (let option in defaultOptions) {
       if (!this.app.options.replace.hasOwnProperty(option)) {
         this.app.options.replace[option] = defaultOptions[option]
       }

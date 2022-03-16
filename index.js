@@ -7,19 +7,18 @@ module.exports = {
 
   included() {
     this._super.included.apply(this, arguments);
-    this.app.options.replace = this.app.options.replace || {};
 
+    const options = this.app.options.replace || {};
     const defaultOptions = {
       files: [],
       patterns: [],
       enabled: true,
     };
 
-    for (let option in defaultOptions) {
-      if (!this.app.options.replace.hasOwnProperty(option)) {
-        this.app.options.replace[option] = defaultOptions[option];
-      }
-    }
+    this.app.options.replace = {
+      ...defaultOptions,
+      ...options,
+    };
   },
 
   postprocessTree: function (type, tree) {

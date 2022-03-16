@@ -14,7 +14,7 @@ module.exports = function (defaults) {
         },
       ],
     },
-  })
+  });
 
   /*
     This build file specifies the options for the dummy test app of this
@@ -31,4 +31,4 @@ module.exports = function (defaults) {
       },
     ],
   });
-}
+};

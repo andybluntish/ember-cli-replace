@@ -1,6 +1,34 @@
 'use strict';
 
-const replace = require('broccoli-replace');
+const fs = require('fs');
+const path = require('path');
+const glob = require('glob');
+const Applause = require('applause');
+
+function getFileList(directory, filePatterns) {
+  // expand file globs to absolute paths
+  const filePaths = filePatterns.reduce((list, filePattern) => {
+    const expandedGlob = glob.sync(filePattern, { cwd: directory });
+    return [...list, ...expandedGlob];
+  }, []);
+
+  // return a unique list
+  return [...new Set(filePaths)];
+}
+
+function replaceFileContent(directory, filePath, applause) {
+  const fullFilePath = path.join(directory, filePath);
+
+  try {
+    const contents = fs.readFileSync(fullFilePath, 'utf8');
+    const { content: result } = applause.replace(contents);
+    if (result) {
+      fs.writeFileSync(fullFilePath, result);
+    }
+  } catch (err) {
+    console.error(err);
+  }
+}
 
 module.exports = {
   name: require('./package').name,
@@ -21,15 +49,12 @@ module.exports = {
     };
   },
 
-  postprocessTree: function (type, tree) {
-    if (
-      type === 'all' &&
-      this.app.options.replace &&
-      this.app.options.replace.enabled
-    ) {
-      tree = replace(tree, this.app.options.replace);
-    }
+  postBuild({ directory }) {
+    const { files, patterns } = this.app.options.replace;
+    const applause = Applause.create({ patterns });
 
-    return tree;
+    getFileList(directory, files).forEach((filePath) => {
+      replaceFileContent(directory, filePath, applause);
+    });
   },
 };

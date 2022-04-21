@@ -37,23 +37,26 @@ module.exports = {
     this._super.included.apply(this, arguments);
 
     const options = this.app.options.replace || {};
-    const defaultOptions = {
+
+    this.app.options.replace = {
       files: [],
       patterns: [],
       enabled: true,
-    };
-
-    this.app.options.replace = {
-      ...defaultOptions,
       ...options,
     };
   },
 
   postBuild({ directory }) {
-    const { files, patterns } = this.app.options.replace;
-    const applause = Applause.create({ patterns });
+    const options = this.app.options.replace;
 
-    getFileList(directory, files).forEach((filePath) => {
+    // duplicate options and remove non-applause entries
+    const applauseOptions = { ...options };
+    delete applauseOptions.enabled;
+    delete applauseOptions.files;
+
+    const applause = Applause.create(applauseOptions);
+
+    getFileList(directory, options.files).forEach((filePath) => {
       replaceFileContent(directory, filePath, applause);
     });
   },

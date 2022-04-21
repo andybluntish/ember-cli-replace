@@ -49,6 +49,10 @@ module.exports = {
   postBuild({ directory }) {
     const options = this.app.options.replace;
 
+    if (!options.enabled) {
+      return;
+    }
+
     // duplicate options and remove non-applause entries
     const applauseOptions = { ...options };
     delete applauseOptions.enabled;

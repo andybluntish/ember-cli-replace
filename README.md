@@ -18,7 +18,9 @@ ember install ember-cli-replace
 
 ## Usage
 
-Define the source files that will be used for replacements (relative to the `dist/` directory), and patterns that will be used to replace the contents of source files.
+Define the source files that will be used for replacements, and patterns that will be used to replace the contents of source files.
+
+The replacements are run post-build, so `files` should specify paths relative to the `dist/` directory, not the `app/` directory. Also note that during build templates are compiled to JavaScript, so you likely want to include `**/*.js` in the list, and probably _don't need_ `**/*.hbs`.
 
 ```js
 var app = new EmberApp({
@@ -37,12 +39,12 @@ var app = new EmberApp({
 
 ## Options
 
-**Note:** most options are passed directly to [applause](https://github.com/outaTiME/applause). For more information on these options, see [applause](https://github.com/outaTiME/applause#options).
+Most options are passed directly to [applause](https://github.com/outaTiME/applause). For more information on these options, see [applause](https://github.com/outaTiME/applause#options).
 
 ### Files
 
 Type: `Array`
-Default: `[]`
+Default: `['index.html', '**/*.js']`
 
 List of [globs](https://github.com/isaacs/node-glob) pointing to files to perform replacements in. Replacements are run after the build, so paths are relative to the `dist/` directory.
 
@@ -51,7 +53,7 @@ List of [globs](https://github.com/isaacs/node-glob) pointing to files to perfor
 Type: `Array`
 Default: `[]`
 
-List of patterns used to perform replacements in source files.
+List of [applause patterns](https://github.com/outaTiME/applause#patterns) used to perform replacements in source files.
 
 ### Enabled
 

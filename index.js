@@ -39,7 +39,7 @@ module.exports = {
     const options = this.app.options.replace || {};
 
     this.app.options.replace = {
-      files: [],
+      files: ['index.html', '**/*.js'],
       patterns: [],
       enabled: true,
       ...options,
